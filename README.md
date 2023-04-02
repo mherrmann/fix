@@ -31,5 +31,5 @@ You need Python 3 and an
 
 # Caveats
 
-The [main.py](implementation) may send arbitrary files from your system to
+The [implementation](main.py) may send arbitrary files from your system to
 OpenAI's servers. What could possibly go wrong?
