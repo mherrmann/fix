@@ -25,9 +25,9 @@ You need Python 3 and an
 2. Unpack it. We'll assume you unpacked to `C:\Users\<user>\Downloads\fix-main`.
 3. Open a command prompt and change to that directory: `cd C:\Users\<user>\Downloads\fix-main`.
 3. Create a Python 3 virtual environment in that directory: `python3 -m venv venv`.
-4. Activate the virtual environment: `call venv/Scripts/activate`.
+4. Activate the virtual environment: `call venv\Scripts\activate`.
 5. Install dependencies: `pip install -Ur requirements.txt`
-6. Create an alias for the command: `doskey fix=~/Downloads/fix-main/venv/bin/python ~/Downloads/fix-main/main.py`.
+6. Create an alias for the command: `doskey fix=C:\Users\<user>\Downloads\fix-main\venv\bin\python C:\Users\<user>\fix-main\main.py`.
 
 # Caveats
 
