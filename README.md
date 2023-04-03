@@ -1,4 +1,4 @@
-`fix` any failing command with ChatGPT:
+A command for automatically fixing coding errors with ChatGPT
 
 ![fix Demo](demo.gif)
 
@@ -31,5 +31,5 @@ You need Python 3 and an
 
 # Caveats
 
-The [implementation](main.py) may send arbitrary files from your system to
-OpenAI's servers. What could possibly go wrong?
+The [implementation](main.py) may send files from your system that are mentioned
+in command outputs to OpenAI's servers. What could possibly go wrong?
