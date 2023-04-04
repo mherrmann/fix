@@ -1,4 +1,4 @@
-A command for automatically fixing coding errors with ChatGPT
+A tool to automatically fix errors in your code base with ChatGPT
 
 ![fix Demo](demo.gif)
 
