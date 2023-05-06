@@ -1,0 +1,7 @@
+#!/bin/bash
+
+PROBLEM_DIR=$(pwd)
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+cd $SCRIPT_DIR
+pipenv run bash -c "cd $PROBLEM_DIR && python $SCRIPT_DIR/main.py $*"
