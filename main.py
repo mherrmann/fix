@@ -30,6 +30,15 @@ def answer(m):
     f.write('\n\n')
   return response
 
+def limit_string_words(s, limit):
+    words = s.split()
+    if len(words) > limit:
+        words = words[:limit]
+        # Join the first `limit` words with spaces, then add an ellipsis
+        return ' '.join(words) + '...'
+    else:
+        return s
+
 if len(sys.argv) == 1:
   print('Please supply a command.')
   sys.exit(1)
@@ -53,6 +62,7 @@ except FileNotFoundError:
   print('Please run `fix --configure`.')
   sys.exit(1)
 
+command = " ".join(sys.argv[1:])
 while True:
   print(f'Running `{command}`...')
   cp = run(command, shell=True, stdout=PIPE, stderr=STDOUT, text=True)
@@ -67,7 +77,7 @@ while True:
     f"""I'm getting the following error when executing the command `{command}`:
 
 ```
-{cp.stdout}
+{limit_string_words(cp.stdout,1500)}
 ```
 
 """
