@@ -50,12 +50,16 @@ def answer(chat):
   return response
 
 def extract_backticked_segment(input_string):
-    backtick_regex = r"`([^`]*)`"
-    match = re.search(backtick_regex, input_string)
-    if match:
-        return match.group(1)
+    backtick_regex = r"(?<!`)`([^`]*)`(?<!`)"
+    triple_backtick_regex = r"```\n((?:.|\n)*?)```"
+    backtick_match = re.search(backtick_regex, input_string)
+    triple_backtick_match = re.search(triple_backtick_regex, input_string)
+    if backtick_match:
+        return backtick_match.group(1)
+    elif triple_backtick_match:
+        return triple_backtick_match.group(1).rstrip()
     else:
-        return input_string
+        return input_string.lstrip().rstrip()
 
 def limit_string_words(s, limit):
     words = s.split()
@@ -135,7 +139,7 @@ def step_modify_command_how(context):
     return "step_preview_command"
 
 def step_preview_command(context):
-    y_n = input(f'ChatGPT suggested running `{command}`. Should I do this? (y)es, (n)o: ')
+    y_n = input(f'ChatGPT suggested running `{context["command"]}`. Should I do this? (y)es, (n)o: ')
     if y_n == 'y':
       return "step_execute_command"
     else:
@@ -209,7 +213,7 @@ def step_make_file_changes(context):
 def step_prompt_run_again(context):
     y_n = input(f'Run `{context["command"]}` again? (y)es, (n)o: ')
     if y_n == 'y':
-       return "step_run_command"
+       return "step_execute_command"
     return None
 
 # ======================== End of the steps
