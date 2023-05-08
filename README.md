@@ -14,10 +14,8 @@ You need Python 3 and an
 1. Download the [source code](https://github.com/mherrmann/fix/archive/refs/heads/main.zip).
 2. Unpack it. We'll assume you unpacked to `~/Downloads/fix-main`.
 3. Open a command prompt and change to that directory: `cd ~/Downloads/fix-main`.
-3. Create a Python 3 virtual environment in that directory: `python3 -m venv venv`.
-4. Activate the virtual environment: `source venv/bin/activate`.
-5. Install dependencies: `pip install -Ur requirements.txt`
-6. Create an alias for the command: `alias fix='~/Downloads/fix-main/venv/bin/python ~/Downloads/fix-main/main.py'`.
+4. Create a virtual environment with `pipenv install`
+5. Create an alias for the command: `alias fix='~/Downloads/fix-main/fix'`.
 
 ## Windows
 
